@@ -1,0 +1,254 @@
+/* Adaptive Theme Support using Bootstrap 5 Variables */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fixed Layout */
+#main-app {
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* Editor Container */
+#editor-container {
+  height: calc(100vh - 200px);
+  max-height: 600px;
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+}
+
+/* Quill Overrides for Theme Compatibility */
+.ql-toolbar {
+  background-color: var(--bs-tertiary-bg) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--bs-border-color) !important;
+  color: var(--bs-body-color) !important;
+}
+
+.ql-container {
+  background-color: var(--bs-body-bg) !important;
+  border: none !important;
+  height: calc(100% - 42px) !important;
+  color: var(--bs-body-color) !important;
+}
+
+.ql-editor {
+  overflow-y: auto !important;
+  max-height: 100% !important;
+}
+
+/* Quill Toolbar Icons - Invert in dark mode if needed */
+[data-bs-theme="dark"] .ql-toolbar .ql-stroke {
+  stroke: var(--bs-body-color) !important;
+}
+
+[data-bs-theme="dark"] .ql-toolbar .ql-fill {
+  fill: var(--bs-body-color) !important;
+}
+
+[data-bs-theme="dark"] .ql-toolbar .ql-picker {
+  color: var(--bs-body-color) !important;
+}
+
+/* Demo Cards */
+.demo-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--bs-border-color);
+  background: var(--bs-card-bg);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.demo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--bs-primary);
+}
+
+.demo-card.active {
+  border-color: var(--bs-success);
+  background: var(--bs-success-bg-subtle);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.demo-card h6 {
+  font-weight: 600;
+  color: var(--bs-card-title-color);
+  margin-bottom: 0.5rem;
+}
+
+.demo-card small {
+  color: var(--bs-secondary-color);
+}
+
+/* Cards */
+.card {
+  border-radius: 8px;
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--bs-card-bg);
+}
+
+.card-header {
+  background-color: var(--bs-tertiary-bg);
+  border-bottom: 1px solid var(--bs-border-color);
+  font-weight: 600;
+  color: var(--bs-card-cap-color);
+}
+
+/* Agent Activity Panel */
+.agent-item {
+  border-left: 4px solid;
+  background: var(--bs-tertiary-bg);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+  color: var(--bs-body-color);
+}
+
+.agent-item.working {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.agent-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Sample Prompts */
+.sample-prompt {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid var(--bs-primary);
+  background: var(--bs-tertiary-bg);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--bs-body-color);
+}
+
+.sample-prompt:hover {
+  background: var(--bs-secondary-bg);
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bs-tertiary-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bs-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bs-secondary-text);
+}
+
+/* Cursor Enhancements */
+.ql-cursor-caret-container {
+  z-index: 100 !important;
+}
+
+.ql-cursor-flag {
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ql-cursor-flag-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Activity Log */
+#logs {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  background: var(--bs-tertiary-bg);
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+}
+
+/* Parent Agent Card (Custom Colors need to be readable in dark mode) */
+#parent-agent-card {
+  border: 2px solid var(--bs-warning);
+}
+
+#parent-agent-card .card-header {
+  background: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+}
+
+/* Fixed Panels - No Overflow */
+#agent-activity-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Layout Utilities */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-lg-7,
+.col-lg-5 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
