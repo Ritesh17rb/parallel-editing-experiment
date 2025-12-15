@@ -624,10 +624,159 @@ Direct: (555) 123-4568</p>`,
         text: "Verify all numbers and financial projections",
         description: "Multiple agents check different financial sections in parallel"
       },
+// ... existing code ...
       {
         text: "Improve professional tone and persuasiveness",
         description: "Agents refine: introduction, solution description, and conclusion concurrently"
       }
+    ]
+  },
+
+  "influencer-agreement": {
+    title: "Influencer Agreement",
+    icon: "bi-camera-video",
+    description: "Brand collaboration terms and content deliverables",
+    document: `<h1 style="text-align: center;">INFLUENCER MARKETING AGREEMENT</h1>
+<p style="text-align: center;"><strong>This Influencer Marketing Agreement</strong> (the "Agreement") is entered into on [Date] (the "Effective Date"), by and between:</p>
+<p style="text-align: center;"><strong>GlobalBrands Inc.</strong> ("Company")<br>and<br><strong>[Influencer Name]</strong> ("Influencer")</p>
+
+<h2>1. ENGAGEMENT AND DELIVERABLES</h2>
+<p>Company hereby engages Influencer to create and post content promoting Company's summer product line. Influencer agrees to produce the following specific deliverables ("Deliverables"):</p>
+<ul>
+  <li><strong>Instagram Reels (x2):</strong> Two high-quality video reels (15-30 seconds) demonstrating product usage in a lifestyle setting. Must include caption with campaign tags #SummerVibes and @GlobalBrands.</li>
+  <li><strong>YouTube Integration (x1):</strong> One dedicated 60-90 second integration within a regular scheduled vlog, including verbal mention of key product benefits and a link in the description.</li>
+  <li><strong>TikTok Series (x3):</strong> Three creative TikTok videos participating in the #GlobalChallenge trend.</li>
+  <li><strong>Instagram Stories (x5):</strong> Five story frames with "Swipe Up" link to product page.</li>
+</ul>
+
+<h2>2. CAMPAIGN SCHEDULE</h2>
+<p>The campaign shall run from June 1, 2024, to August 31, 2024. Deliverables shall be posted according to the following schedule:</p>
+<ul>
+  <li><strong>Draft Submission:</strong> All content drafts must be submitted for approval by May 15, 2024.</li>
+  <li><strong>Posting Dates:</strong> 
+    <ul>
+      <li>Instagram Reel 1: June 5</li>
+      <li>YouTube Integration: June 15</li>
+      <li>TikTok Series: July 1, July 15, August 1</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>3. COMPENSATION AND PAYMENT</h2>
+<p><strong>3.1 Flat Fee.</strong> In full consideration for the Services and Rights granted herein, Company shall pay Influencer a total flat fee of <strong>$5,000.00 USD</strong>.</p>
+<p><strong>3.2 Payment Terms.</strong> Payment shall be made in two installments: 50% upon contract signing and 50% within 14 days of the final deliverable posting.</p>
+
+<h2>4. INTELLECTUAL PROPERTY AND USAGE RIGHTS</h2>
+<p><strong>4.1 Ownership.</strong> Influencer retains ownership of all content created. However, Influencer grants Company a worldwide, irrevocable, royalty-free license to use, reproduce, and display the content for digital marketing purposes.</p>
+<p><strong>4.2 Paid Media.</strong> Company shall have the right to whitelist and promote the content via paid social media ads for a period of six (6) months from the posting date.</p>
+
+<h2>5. EXCLUSIVITY</h2>
+<p>Influencer agrees that during the Term of this Agreement and for a period of thirty (30) days following the final post, they will not create sponsored content for any direct competitors in the [Industry/Category] space. Direct competitors include but are not limited to: [Competitor A], [Competitor B].</p>
+
+<h2>6. FTC COMPLIANCE</h2>
+<p>Influencer represents and warrants that all posts will clearly and conspicuously disclose the material connection between Company and Influencer in compliance with Federal Trade Commission (FTC) guidelines (e.g., using #ad, #sponsored).</p>`,
+    samplePrompts: [
+      { text: "Tighten exclusivity terms", description: "Agents review usage rights and competition clauses" },
+      { text: "Clarify deliverables", description: "Agents expand on video requirements" }
+    ]
+  },
+
+  "service-level-agreement": {
+    title: "Service Level Agreement",
+    icon: "bi-server",
+    description: "SLA for Enterprise SaaS definition",
+    document: `<h1 style="text-align: center;">ENTERPRISE SERVICE LEVEL AGREEMENT</h1>
+<p><strong>Effective Date:</strong> January 1, 2025</p>
+<p>This Service Level Agreement ("SLA") is an integral part of the Master Subscription Agreement between <strong>CloudTech Systems</strong> ("Provider") and <strong>Enterprise Corp</strong> ("Customer").</p>
+
+<h2>1. DEFINITIONS</h2>
+<ul>
+  <li><strong>"Uptime"</strong> means the percentage of time the Service is available and accessible to the Customer, excluding Scheduled Maintenance.</li>
+  <li><strong>"Scheduled Maintenance"</strong> means planned downtime for updates, with at least 48 hours prior notice.</li>
+  <li><strong>"Downtime"</strong> means any period greater than one minute where the Service is unavailable due to Provider's systems.</li>
+</ul>
+
+<h2>2. SERVICE AVAILABILITY COMMITMENT</h2>
+<p>Provider guarantees a Monthly Uptime Percentage of <strong>99.99%</strong> ("Service Level Objective"). Availability is calculated as follows:</p>
+<p><em>(Total Minutes in Month - Downtime Minutes) / Total Minutes in Month * 100</em></p>
+
+<h2>3. SUPPORT RESPONSE TIMES</h2>
+<p>Provider shall respond to support requests within the following timeframes based on severity:</p>
+<div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+  <p><strong>🔴 Priority 1 (Critical):</strong> Complete system outage or data loss.<br>
+  <em>Response Time:</em> Within 15 minutes (24/7)</p>
+  
+  <p><strong>🟠 Priority 2 (High):</strong> Major feature failure, heavy performance degradation.<br>
+  <em>Response Time:</em> Within 2 hours (Business Hours)</p>
+  
+  <p><strong>🔵 Priority 3 (Normal):</strong> Minor bug or question.<br>
+  <em>Response Time:</em> Within 1 business day</p>
+</div>
+
+<h2>4. SERVICE CREDITS</h2>
+<p>In the event Provider fails to meet the Service Level Objective, Customer shall be entitled to Service Credits as follows:</p>
+<ul>
+  <li><strong>Uptime 99.90% - 99.98%:</strong> 5% of Monthly Fee credited</li>
+  <li><strong>Uptime 99.50% - 99.89%:</strong> 10% of Monthly Fee credited</li>
+  <li><strong>Uptime 99.00% - 99.49%:</strong> 25% of Monthly Fee credited</li>
+  <li><strong>Uptime below 99.00%:</strong> 50% of Monthly Fee credited</li>
+</ul>
+<p>Service Claims must be submitted within thirty (30) days of the variance.</p>`,
+    samplePrompts: [
+      { text: "Make penalties stricter", description: "Agents adjust service credits and response times" },
+      { text: "Standardize definitions", description: "Agents review availability and priority definitions" }
+    ]
+  },
+
+  "crisis-response-plan": {
+    title: "Crisis Response Plan",
+    icon: "bi-shield-exclamation",
+    description: "Emergency protocols and communication strategy",
+    document: `<h1 style="text-align: center; color: #d9534f;">CORPORATE CRISIS RESPONSE PROTOCOL</h1>
+<p><strong>Version:</strong> 2.0 | <strong>Last Updated:</strong> October 2024</p>
+<p><strong>Purpose:</strong> To establish a clear chain of command and communication strategy in the event of a significant business disruption or reputation threat.</p>
+
+<h2>1. CRISIS LEVELS AND ACTIVATION</h2>
+<p>This plan is activated upon declaration of one of the following severity levels:</p>
+<ul>
+  <li><strong>Level 1 (Critical):</strong> Immediate threat to life, safety, or core business continuity (e.g., Major Data Breach, Natural Disaster, Executive Scandal).</li>
+  <li><strong>Level 2 (High):</strong> Significant operational disruption or growing negative media coverage.</li>
+  <li><strong>Level 3 (Medium):</strong> Localized issue with potential to escalate.</li>
+</ul>
+
+<h2>2. CRISIS RESPONSE TEAM (CRT)</h2>
+<p>The CRT must convene within 60 minutes of a Level 1 activation.</p>
+<ul>
+  <li><strong>Incident Commander:</strong> Chief Executive Officer (Executes final decisions)</li>
+  <li><strong>Legal Advisor:</strong> General Counsel (Mitigates liability)</li>
+  <li><strong>Communications Lead:</strong> VP of Public Relations (Manages internal/external messaging)</li>
+  <li><strong>HR Lead:</strong> Chief People Officer (Employee safety and communications)</li>
+</ul>
+
+<h2>3. IMMEDIATE ACTION PLAN (First 0-4 Hours)</h2>
+<p><strong>Hour 0-1: Assessment & Containment</strong></p>
+<ul>
+  <li>Secure all affected systems (IT Security Lead).</li>
+  <li>Ensure physical safety of all employees (Facilities Director).</li>
+  <li>CRT convenes for initial briefing.</li>
+</ul>
+
+<p><strong>Hour 1-2: Notification</strong></p>
+<ul>
+  <li>Notify Board of Directors.</li>
+  <li>Contact cyber insurance/legal defense counsel.</li>
+  <li>Issue "Holding Statement" to media (if inquiry received).</li>
+</ul>
+
+<h2>4. COMMUNICATION TEMPLATES</h2>
+<p><strong>Internal Holding Statement:</strong></p>
+<p><em>"We are aware of the situation regarding [Incident]. The Crisis Response Team has been activated and is investigating. We will share verified facts as soon as they are available. Please direct all media inquiries to [Contact]."</em></p>
+
+<h2>5. POST-INCIDENT REVIEW</h2>
+<p>Within 48 hours of crisis de-escalation, a thorough "After-Action Report" will be generated to document lessons learned and update protocols.</p>`,
+    samplePrompts: [
+      { text: "Expand communication protocols", description: "Agents detail stakeholder notification steps" },
+      { text: "Review roles and responsibilities", description: "Agents clarify team accountabilities" }
     ]
   }
 };
@@ -709,5 +858,17 @@ export const agentConfigurations = {
       section: "PROPOSED SOLUTION",
       task: "Improve technical descriptions, ensure clarity and completeness of solution architecture"
     }
+  ],
+  "influencer-agreement": [
+    { id: "agent-deliverables", name: "Content Strategist", color: "#FF6B6B", section: "DELIVERABLES", task: "Review scope" },
+    { id: "agent-legal", name: "Legal", color: "#4ECDC4", section: "USAGE RIGHTS", task: "Check rights" }
+  ],
+  "service-level-agreement": [
+    { id: "agent-uptime", name: "SRE Lead", color: "#A8E6CF", section: "SERVICE AVAILABILITY", task: "Check uptime" },
+    { id: "agent-credits", name: "Billing", color: "#FFD3B6", section: "SERVICE CREDITS", task: "Verify credits" }
+  ],
+  "crisis-response-plan": [
+    { id: "agent-comms", name: "PR Director", color: "#FFAAA5", section: "IMMEDIATE ACTIONS", task: "Review comms" },
+    { id: "agent-ops", name: "Ops Lead", color: "#B4A7D6", section: "CORE RESPONSE TEAM", task: "Check roles" }
   ]
 };

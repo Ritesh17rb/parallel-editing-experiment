@@ -6,16 +6,27 @@ body {
   overflow-x: hidden;
 }
 
-/* Fixed Layout */
-#main-app {
-  max-height: calc(100vh - 60px);
-  overflow: hidden;
+.narrative {
+  max-inline-size: 40rem;
 }
 
-/* Editor Container */
+
+/* Fixed Layout - relaxed for hero scrolling if needed, or keep rigid? 
+   The user wants "like DataGen". DataGen scrolls. 
+   Let's remove the strict max-height on main-app to allow the new Hero section to exist naturally.
+*/
+#main-app {
+  /* Allow scrolling */
+  height: auto;
+  overflow: visible;
+  padding-bottom: 50px;
+}
+
+/* Editor Container - Fixed Size */
 #editor-container {
-  height: calc(100vh - 200px);
-  max-height: 600px;
+  height: 600px;
+  /* Fixed height for editor */
+  max-height: 70vh;
   font-family: 'Georgia', serif;
   font-size: 1.1rem;
   border-radius: 8px;
@@ -43,6 +54,12 @@ body {
 .ql-editor {
   overflow-y: auto !important;
   max-height: 100% !important;
+}
+
+/* Placeholder text visibility in all themes */
+.ql-editor.ql-blank::before {
+  color: var(--bs-secondary-color) !important;
+  opacity: 0.6 !important;
 }
 
 /* Quill Toolbar Icons - Invert in dark mode if needed */
@@ -233,12 +250,25 @@ body {
 #parent-agent-card .card-header {
   background: var(--bs-warning-bg-subtle);
   color: var(--bs-warning-text-emphasis);
+  font-weight: 600;
+}
+
+#parent-agent-info {
+  /* Force dark text for readability on light/warning backgrounds */
+  color: #000 !important;
+}
+
+[data-bs-theme="dark"] #parent-agent-info {
+  color: #fff !important;
 }
 
 /* Fixed Panels - No Overflow */
 #agent-activity-container {
+  height: 300px;
   max-height: 300px;
   overflow-y: auto;
+  background: var(--bs-body-bg);
+  border-top: 1px solid var(--bs-border-color);
 }
 
 /* Layout Utilities */
@@ -251,4 +281,75 @@ body {
 .col-lg-5 {
   padding-left: 12px;
   padding-right: 12px;
+}
+
+/* Hero Section Enhancements */
+#hero-section {
+  padding: 1.5rem 1rem;
+  margin-bottom: 1rem !important;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--bs-primary) 0%, #d63384 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Feature Badges */
+.feature-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--bs-body-color);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+  cursor: default;
+}
+
+[data-bs-theme="dark"] .feature-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--bs-light);
+}
+
+.feature-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-bs-theme="dark"] .feature-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Typography Tweaks for Hero */
+.display-2 {
+  font-size: 4.5rem;
+  /* Bigger title */
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-bs-theme="dark"] .display-2 {
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.narrative p.lead {
+  font-size: 1.35rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--bs-secondary-color);
+  max-width: 800px;
+  margin-right: auto;
 }

@@ -39,5 +39,8 @@ export default {
     - Improve or rewrite clauses without changing intent.
     - Output PLAIN TEXT ONLY. Do not use Markdown or HTML tags.
     - Protect the Client's interests.
-  `
+  `,
+
+  defaultModel: "gpt-4o-mini",
+  availableModels: ["gpt-4o-mini", "gpt-4o", "gpt-3.5-turbo"]
 };

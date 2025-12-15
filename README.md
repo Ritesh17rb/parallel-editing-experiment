@@ -1,6 +1,6 @@
-# Parallel Editing Experiment - Multi-Agent AI Collaboration
-
-A sophisticated demonstration of concurrent human-AI document editing with multi-agent parallelism. This application showcases how multiple AI agents can work simultaneously on different sections of a document while a human user continues editing without interruption.
+# Parallel Edit - Collaborative Intelligence for Complex Documents
+ 
+**Parallel Edit** is a cutting-edge experiment in human-AI collaboration that goes beyond simple chatbots. It demonstrates a "hive mind" approach where multiple specialized AI agents work simultaneously on different sections of a large document (like contracts, research papers, or proposals) alongside a human editor. Built on **Yjs** for conflict-free real-time collaboration, it ensures that AI and human edits never collide, creating a seamless flow of enhanced productivity.
 
 ## 🌟 Key Features
 
@@ -11,8 +11,18 @@ A sophisticated demonstration of concurrent human-AI document editing with multi
 
 Each scenario includes realistic, detailed content equivalent to 3-6 pages in a Word document.
 
-### 2. **Multi-Agent Parallelism**
-One high-level prompt spawns multiple specialized AI agents that work simultaneously:
+### 2. **Multi-Agent Parallelism with Dynamic Naming**
+One high-level prompt spawns multiple specialized AI agents that work simultaneously. **Agent names are now dynamically generated based on their specific tasks**, making it easy to understand what each agent is doing at a glance.
+
+**How Dynamic Naming Works:**
+- When you give a task, the system analyzes the task description
+- Uses LLM (if API key available) or keyword matching to generate a descriptive name
+- Names are concise (2-3 words) and professional
+- Examples:
+  - Task: "Verify all party names and addresses" → **"Parties Verifier"**
+  - Task: "Review limitation of liability clauses" → **"Liability Checker"**
+  - Task: "Analyze financial projections" → **"Financial Auditor"**
+  - Task: "Improve abstract clarity" → **"Abstract Enhancer"**
 
 **Legal Contract Example:**
 - **Parties Verifier**: Checks party names, addresses, and legal entities
@@ -26,8 +36,8 @@ One high-level prompt spawns multiple specialized AI agents that work simultaneo
 - **Citation Checker**: Validates references
 
 **Business Proposal Example:**
-- **Executive Summary**: Enhances value proposition
-- **Financial Analyst**: Verifies calculations and projections
+- **Value Proposition Expert**: Enhances executive summary
+- **Financial Auditor**: Verifies calculations and projections
 - **Technical Writer**: Improves solution descriptions
 
 ### 3. **Concurrent Editing (Non-Blocking)**
@@ -320,6 +330,46 @@ Adjust delays in the `callLLM` function:
 
 ```javascript
 await new Promise(r => setTimeout(r, 30)); // Change 30 to desired ms
+```
+
+### Customizing Agent Name Generation
+
+The system automatically generates agent names based on tasks. You can customize this behavior in `script.js`:
+
+**With API Key (LLM-based):**
+The `generateAgentName` function sends a prompt to the LLM to create contextual names:
+
+```javascript
+async function generateAgentName(task, section) {
+  // Modify the prompt to change naming style
+  const prompt = `Given this task: "${task}" for section "${section}", 
+  generate a concise, professional agent name (2-3 words max)...`;
+  // ... rest of function
+}
+```
+
+**Without API Key (Keyword-based):**
+The function uses keyword matching as fallback:
+
+```javascript
+if (!apiKey) {
+  const taskKeywords = task.toLowerCase();
+  if (taskKeywords.includes('verify')) return 'Verification Specialist';
+  if (taskKeywords.includes('review')) return 'Analysis Expert';
+  // Add your own keyword patterns here
+  return 'Document Specialist'; // Default fallback
+}
+```
+
+**Disabling Dynamic Naming:**
+If you prefer static names, simply remove the name generation calls in `runAutonomousAgent` and `runSingleAgent`:
+
+```javascript
+// Remove these lines:
+const dynamicName = await generateAgentName(agentConfig.task, agentConfig.section);
+agentConfig.name = dynamicName;
+
+// The agent will use the name from agentConfigurations in demo-documents.js
 ```
 
 ## 🤝 Contributing
