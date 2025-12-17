@@ -101,42 +101,7 @@
       }
     }
 
-    .agent-item.working {
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.7;
-      }
-    }
-
-    .agent-status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 8px;
-      animation: blink 1.5s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
-    }
+    /* Agent animations moved to styles.css for better control */
 
     /* Sample Prompts */
     .sample-prompt {
@@ -290,7 +255,7 @@
                   placeholder="e.g. Add a liability cap of $50k"></textarea>
                 <div class="d-grid gap-2">
                   <button id="btn-trigger" class="btn btn-primary btn-sm">
-                    <i class="bi bi-play-fill me-1"></i>Draft / Edit
+                    <i class="bi bi-play-fill me-1"></i>Apply Instructions
                   </button>
                 </div>
                 <div id="ai-status" class="badge bg-secondary d-none mt-2">Thinking...</div>
@@ -300,19 +265,7 @@
 
           <!-- Multi-Agent Activity Panel -->
           <div class="col-12">
-            <!-- Parent Agent Status -->
-            <div class="card shadow-sm border-0 bg-body-tertiary mb-3" id="parent-agent-card" style="display: none;">
-              <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
-                <span><i class="bi bi-stars me-2"></i>Parent Agent (Supervisor)</span>
-                <span class="badge bg-light text-dark" id="parent-status">Planning</span>
-              </div>
-              <div class="card-body p-2">
-                <div id="parent-agent-info" class="small text-white">
-                  <div class="mb-1"><strong>Role:</strong> Coordinating team and ensuring quality</div>
-                  <div id="parent-analysis" class="text-muted"></div>
-                </div>
-              </div>
-            </div>
+
 
             <!-- Child Agents Activity -->
             <div class="card shadow-sm border-0 bg-body-tertiary">
@@ -454,6 +407,58 @@
           </select>
         </div>
         <div class="modal-footer"><button type="button" class="btn btn-primary" id="save-llm-config">Save</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="diffModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="diff-modal-title">Edit Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Visual Diff Option -->
+          <ul class="nav nav-tabs mb-3" id="diffTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="visual-tab" data-bs-toggle="tab" data-bs-target="#visual-diff-pane"
+                type="button" role="tab">Visual Diff</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="raw-tab" data-bs-toggle="tab" data-bs-target="#raw-diff-pane" type="button"
+                role="tab">Before vs After</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="diffTabContent">
+            <!-- VISUAL DIFF PANE (Inline) -->
+            <div class="tab-pane fade show active" id="visual-diff-pane" role="tabpanel">
+              <div id="diff-visual-container" class="p-3 border rounded bg-light"
+                style="font-family: monospace; white-space: pre-wrap;"></div>
+            </div>
+
+            <!-- RAW SIDE-BY-SIDE PANE -->
+            <div class="tab-pane fade" id="raw-diff-pane" role="tabpanel">
+              <div class="row g-2">
+                <div class="col-6">
+                  <h6 class="text-danger">Before</h6>
+                  <div id="diff-before-content" class="p-3 border rounded bg-light-subtle text-muted small"
+                    style="white-space: pre-wrap; max-height: 400px; overflow-y: auto;"></div>
+                </div>
+                <div class="col-6">
+                  <h6 class="text-success">After</h6>
+                  <div id="diff-after-content" class="p-3 border rounded bg-light-subtle small"
+                    style="white-space: pre-wrap; max-height: 400px; overflow-y: auto;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
